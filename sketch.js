@@ -37,13 +37,15 @@ function draw() {
     background(230);
     Engine.update(engine);
 
-    if (keyDown(UP_ARROW)) {
-        garb1.velocityY -= 3;
-    }
-
     garb1.display();
     groundObject.display();
     dustbinObj.display();
 
     drawSprites();
+}
+
+function keyPressed() {
+    if (keyCode === UP_ARROW) {
+        Matter.Body.applyForce(garb1.body, garb1.body.position, { x: 434, y: -473 });
+    }
 }
